@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box연습(test10_2.html)</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            margin: 10px 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        .a01{
+            display: table;
+            background-color: red; 
+        }
+        .a01 span{
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .a02{
+            background-color: orange;   
+            position: relative;
+            left: 50px;
+            top: 200px;
+        }
+        .a03{
+            background-color: yellow;   
+            position: absolute;
+            left: 200px;
+            top: 350px;
+            z-index: 1;
+        }
+        .a04{
+            background-color: yellowgreen;
+            position: fixed;   
+            left: 250px;
+            top: 250px;
+        }
+        .a05{
+            background-color: green;   
+        }
+        .a06{
+            background-color: blue;   
+        }
+        .a07{
+            background-color: navy;   
+        }
+        .a08{
+            background-color: purple;   
+        }
+        .a09{
+            background-color: white;   
+        }
+        .a10{
+            background-color: black;   
+        }
+    </style>
+</head>
+<body>
+    <h2>위치(position)</h2>
+    <div class="a01">
+        <span>01</span>
+    </div>
+    <div class="a02">02</div>
+    <div class="a03">03</div>
+    <div class="a04">04</div>
+    <div class="a05">05</div>
+    <div class="a06">06</div>
+    <div class="a07">07</div>
+    <div class="a08">08</div>
+    <div class="a09">09</div>
+    <div class="a10">10</div>
+
+    <ul>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li><li>1</li>
+
+    </ul>
+</body>
+</html>
