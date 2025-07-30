@@ -21,7 +21,7 @@
         su2 = temp;
       }
       const margin = 20;
-      let widthCal= `calc((100% - ${(su3) * margin+1}px) / ${su3}`;
+      let widthCal= `calc((100% - ${(su3) * margin+1}px) / ${su3})`;
       let cnt = 0;
 
       str += '<div class="box_wrap">';
@@ -50,6 +50,12 @@
       border: 1px solid #ccc;
       border-radius: 15px;
     } 
+    input[type="button"]{
+      margin: 10px 0;
+    }
+    input[type="number"]{
+      margin: 10px 0 20px;
+    }
   </style>
 
 </head>
