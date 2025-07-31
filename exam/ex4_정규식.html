@@ -23,17 +23,60 @@
             ?=.* : []안의 내용이 1개이상 반복...
         */
 
+        //회원가입 완료후 가입포인트를 1234500을 지급하기로 한다.
+
         function fCheck() {
             let regMid = /^[a-zA-Z0-9_]{3,20}$/g; //아이디는 영문 대소문자, 숫자, _
-            let regPwd = //g; //비밀번호는 영문 대소문자, 숫자, 특수문자 1글자를 포함
-            let regNickname = //g; //닉네임은 영문자나 한글, 숫자, _, -
-            let regName = //g; //성명은 영문또는 한글
-            let regEmail = //g; //이메일 형식에 맞도록 처리
-            let regHomepage = //g; //url 형식에 맞도록 처리
-            let regTel = /\d{2,3}-\d{3,4}-\d{4}$/g; //010-1234-5678, 010-123-1234, 02-123-1234,
-            let regJumin = //g; //123456-1234567
+            let regPwd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/; //비밀번호는 영문 대소문자, 숫자, 특수문자 1글자를 포함
+            let regNickname = /^[a-zA-Z가-힣0-9_-]$/g; //닉네임은 영문자나 한글, 숫자, _, -
+            let regName = /[a-zA-Z가-힣]/g; //성명은 영문또는 한글
+            let regEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/g; //이메일 형식에 맞도록 처리
+            let regHomepage = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(\S*)?$/g; //url 형식에 맞도록 처리
+            let regTel = /^\d{2,3}-\d{3,4}-\d{4}$/g; //010-1234-5678, 010-123-1234, 02-123-1234,
+            let regJumin = /^\d{6}-\d{7}$/g; //123456-1234567
+
+            let mid = document.getElementById("mid");
+            let pwd = document.getElementById("pwd");
+            let rePwd = document.getElementById("rePwd");
+            let nickname = document.getElementById("nickname");
+            let name = document.getElementById("name");
+            let email = document.getElementById("email");
+            let homepage = document.getElementById("homepage");
+            let tel = document.getElementById("tel");
+            let jumin = document.getElementById("jumin");
+            let content = document.getElementById("content");
+
+            const inputs = document.querySelectorAll('input, textarea');
+
+            for(let i=0;i<inputs.length;i++) {
+                let input = inputs[i];
+
+                if(input.value.trim() == ""){
+                    let label = document.querySelector('label[for="' + input.id + '"]');
+                    let labelText = label.innerText;
+
+                    alert(labelText + "를 입력하세요");
+                    input.focus();
+                    return false;
+                }
+
+                let value = input.value.trim();
+                
+            }
+
+
+
+
+
+            if(pwd.value !== rePwd.value){
+                alert("비밀번호가 같지 않습니다")
+                pwd.focus();
+                return false;
+            }
+
 
         }
+
 
     </script>
 </head>
@@ -44,53 +87,53 @@
         <h3 class="mb-3">회 원 가 입</h3>
         <form action="" method="post">
             <div class="input-group mb-3">
-                <span class="input-group-text">아이디</span>
+                <label for="mid" class="input-group-text">아이디</label>
                 <input type="text" name="mid" id="mid" value="hkd1234" class="form-control" autofocus required>
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text">비밀번호</span>
+                <label for="pwd" class="input-group-text">비밀번호</label>
                 <input type="password" name="pwd" id="pwd" value="1234!" class="form-control" required>
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text">비밀번호확인</span>
+                <label for="rePwd" class="input-group-text">비밀번호확인</label>
                 <input type="password" name="rePwd" id="rePwd" value="1234!" class="form-control" required>
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text">닉네임</span>
+                <label for="nickname" class="input-group-text">닉네임</label>
                 <input type="text" name="nickname" id="nickname" value="홍장군" class="form-control" required>
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text">성명</span>
+                <label for="name" class="input-group-text">성명</label>
                 <input type="text" name="name" id="name" value="홍길동" class="form-control" required>
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text">이메일</span>
+                <label for="email" class="input-group-text">이메일</label>
                 <input type="email" name="email" id="email" value="hkd1234@naver.com" class="form-control" required>
             </div><div class="input-group mb-3">
-                <span class="input-group-text">홈페이지</span>
+                <label for="homepage" class="input-group-text">홈페이지</label>
                 <input type="url" name="homepage" id="homepage" value="blog.namver.com/hkd1234" class="form-control" required>
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text">전화번호</span>
+                <label for="tel" class="input-group-text">전화번호</label>
                 <input type="tel" name="tel" id="tel" value="01012345678" class="form-control" required>
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text">주민번호</span>
+                <label for="jumin" class="input-group-text">주민번호</label>
                 <input type="text" name="jumin" id="jumin" value="123456-1234567" class="form-control" required>
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text">생일</span>
+                <label for="birthday" class="input-group-text">생일</label>
                 <input type="date" name="birthday" id="birthday" value="2000-01-01" class="form-control" required>
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text">자기소개서</span>
+                <label for="content" class="input-group-text">자기소개서</label>
                 <textarea rows="4" name="content" id="content" class="form-control" required> 자기소개서 </textarea>
             </div>
             <div class="row">
                 <div class="col">
                     <input type="button" value="회원가입" id="" onclick="fCheck()" class="btn btn-success">
                 </div>
-                <div class="col">
+                <div class="col text-right">
                     <input type="reset" value="다시입력" class="btn btn-warning " required>
                 </div>
             </div>
